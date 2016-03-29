@@ -1,0 +1,67 @@
+﻿<h1>Ajouter un nouveau produit</h1>
+<form id="form1" method="post">
+	<table>
+		<tr>
+			<td>Designation : </td>
+			<td>
+				<input type="text" id="designation" name="designation" 
+				value="<?php echo $this->viewData['item']->designation;?>"/>
+				<span id="erreur">
+					<?php 
+                                                                            $message = array_shift($this->viewData['item']->getAttributErrorMessages('designation'));
+                                                                            echo $message;
+					?>
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td>Prix Unitaire : </td>
+			<td>
+				<input type="text" id="price" name="price" 
+				value="<?php echo $this->viewData['item']->price;?>"/>(DH)
+				<span id="erreur">
+					<?php 
+                                                                            $message = array_shift($this->viewData['item']->getAttributErrorMessages('price'));
+                                                                            echo $message;
+					?>
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td>Tva : </td>
+			<td>
+				<input type="text" id="vat" name="vat" 
+				value="<?php echo $this->viewData['item']->vat;?>"/>(%)
+				<span id="erreur">
+				<?php 
+                                                    $message = array_shift($this->viewData['item']->getAttributErrorMessages('vat'));
+                                                    echo $message;
+				?></span>
+			</td>
+		</tr>
+		<tr>
+			<td>Quantité : </td>
+			<td><input type="text" id="quantity" name="quantity" 
+			value="<?php echo $this->viewData['item']->quantity;?>"/>
+			<span id="erreur">
+			<?php 
+                                           $message = array_shift($this->viewData['item']->getAttributErrorMessages('quantity'));
+                                           echo $message;
+			?></span>
+		</td>
+		</tr>
+		<tr>
+			<td>Catégorie : </td>
+			<td>
+				<select id="categoryId" name="categoryId">
+					<?php 
+						foreach($this->viewData['categoryItems'] as $cat)
+							echo '<option value="'.$cat['id'].'">
+							'.$cat['category'].'</option>';
+					?>
+				</select>
+			</td>
+		</tr>
+		<tr><td colspan='2'><input type="submit" value="Ajouter" /></td></tr>
+	</table>
+</form>

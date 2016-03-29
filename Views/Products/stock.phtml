@@ -1,0 +1,40 @@
+﻿<h1>Stockage de Produit </h1>
+<form id="form1" method="post">
+	<table>
+		<tr><th>N°</th><th>Date de Stock</th><th>Quantité</th></tr>
+		<?php 
+			
+			foreach($this->viewData['stockItems'] as $item)
+				echo '<tr><td>'.$item['id'].'</td><td>'.$item['date'].'</td>
+					<td>'.$item['quantite'].'</td></tr>';
+
+		?>
+		<tr>
+			<td>Nouveau Stock</td>
+			<td>
+				<input type="text" id='date' name='date' 
+				value="<?php echo $this->viewData['item']->getDate();?>"/>
+				<br>
+				<span id="erreur">
+                                                                <?php 
+                                                                            $message = array_shift($this->viewData['item']->getAttributErrorMessages('date'));
+                                                                            echo $message;
+                    ?>
+				</span>
+			</td>
+			<td>
+				<input type="text" id='quantity' name='quantity' 
+					value="<?php echo $this->viewData['item']->quantity;?>"/>
+				<br>
+				<span id="erreur">
+					<?php 
+                                                                            $message = array_shift($this->viewData['item']->getAttributErrorMessages('quantity'));
+                                                                            echo $message;
+                    ?>
+				</span>
+			</td>
+		</tr>
+		<tr><td colspan='3'><input type="submit" value="Ajouter au Stock" /></td></tr>
+	</table>
+	<a href="?controller=Products">Retour</a>
+</form>

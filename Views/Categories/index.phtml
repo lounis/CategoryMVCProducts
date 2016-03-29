@@ -1,0 +1,21 @@
+﻿<h1>Listes des Catégories</h1>
+<table>
+	<tr>
+		<th>N°</th><th>Catégorie</th>
+        <th>Modification</th><th>Suppression</th><th>Liste Produits</th><th>Ajout Produit</th>
+		
+	</tr>
+	<?php 
+		foreach($this->viewData['items'] as $item) :
+			echo'<tr>
+                                                    <td>'.$item['id'].'</td><td>'.$item['category'].'</td>
+				 <td><a href="?controller=Categories&action=update&id='.$item['id'].'">Modifier</a></td>
+				 <td><a href="?controller=Categories&action=delete&id='.$item['id'].'">Supprimer</a></td>
+                                                     <td><a href="?controller=Products&id='.$item['id'].'">Lister Produits</a></td>
+				 <td><a href="?controller=Products&action=addnew&id='.$item['id'].'">Ajouter Produit</a></td>
+			</tr>';
+		endforeach;
+	?>
+</table>
+<a href="?controller=Categories&action=addnew">Ajouter une nouvelle catégorie</a>
+

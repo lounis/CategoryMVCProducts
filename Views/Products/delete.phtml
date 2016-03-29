@@ -1,0 +1,49 @@
+﻿<h1>Supprimer un produit</h1>
+
+<form id="form1" method="post">
+	<table>
+		<tr>
+			<td>Id : </td>
+			<td><input type="text" id="id" name="id" readonly="true"
+					value="<?php echo $this->viewData['item']->id;?>"/>
+			</td>
+		</tr>
+		<tr>
+			<td>Designation : </td>
+			<td>
+			<input type="text" id="designation" name="designation" readonly="true" 
+				value="<?php echo $this->viewData['item']->designation;?>"/>
+			</td>
+		</tr>
+		<tr>
+			<td>Prix Unitaire : </td>
+			<td>
+				<input type="text" id="prix" readonly="true" name="proce" 
+				value="<?php echo $this->viewData['item']->price;?>"/>(DH)
+			</td>
+		</tr>
+		<tr>
+			<td>Tva : </td>
+			<td>
+				<input type="text" id="tva" readonly="true" name="vta" 
+				value="<?php echo $this->viewData['item']->vta;?>"/>(%)
+			</td>
+		</tr>
+		<tr>
+			<td>Quantité : </td>
+			<td>
+				<input type="text" id="quantite" readonly="true" name="quantity" 
+				value="<?php echo $this->viewData['item']->quantity;?>"/>
+			</td>
+		</tr>
+		<tr>
+			<td>Catégorie : </td>
+			<td>
+				<input type="text" id="category" readonly="true" name="category" 
+				value="<?php echo $this->viewData['parentItem']->category;?>"/>
+			</td>
+		</tr>
+		<tr><td colspan='2'><input type="submit" value= "  Supprimer  " /></td></tr>
+	</table>
+</form>
+<a href="?controller=Products">Retour</a>

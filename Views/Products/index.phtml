@@ -1,0 +1,27 @@
+﻿<h1>Listes de Produits <?php if (isset($_GET['id'])) { echo ' de la catégorie '.$this->viewData['parentItems']->category;} ?></h1>
+<table>
+	<tr>
+		<th>N°</th><th>Designation</th>
+		<th>Prix Unitaire (Dh)</th><th>Tva(%)</th>
+		<th>Quantité</th>
+		<th>Modification</th><th>Suppression</th><th>Stockage</th>
+	</tr>
+	<?php 
+		foreach($this->viewData['items'] as $item) :
+			echo'<tr><td>'.$item['id'].'</td>
+			     <td>'.$item['designation'].'</td>
+				 <td>'.$item['price'].'</td>
+				 <td>'.$item['vat'].'</td>
+				 <td>'.$item['quantity'].'</td>
+				 <td><a href="?controller=Products&action=update&id=
+					'.$item['id'].'">Modifier</a></td>
+				 <td><a href="?controller=Products&action=delete&id=
+					'.$item['id'].'">Supprimer</a></td>
+				 <td><a href="?controller=Products&action=stock&id=
+					'.$item['id'].'">Stocker</a></td>
+				 </tr>';
+		endforeach;
+	?>
+</table>
+<a href="?controller=Products&action=addnew">Ajouter un nouveau produit</a>
+

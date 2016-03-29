@@ -1,0 +1,19 @@
+﻿<h1>Ajouter une nouvelle catégorie</h1>
+<form id="form1" method="post">
+	<table>
+		<tr>
+			<td>catégorie : </td>
+			<td>
+				<input type="text" id="category" name="category" 
+				value="<?php echo $this->viewData['item']->category;?>"/>
+				<span id="erreur">
+					<?php 
+                                                                            $message = array_shift($this->viewData['item']->getAttributErrorMessages('category'));
+                                                                            echo $message;
+					?>
+				</span>
+			</td>
+		</tr>
+		<tr><td colspan='2'><input type="submit" value="Ajouter" /></td></tr>
+	</table>
+</form>

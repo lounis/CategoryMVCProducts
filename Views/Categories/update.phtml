@@ -1,0 +1,24 @@
+﻿<h1>Modifier une catégorie</h1>
+
+<form id="form1" method="post">
+	<table>
+		<tr>
+			<td>Id : </td>
+			<td><input type="text" id="id" name="id" readonly="true" disabled
+				value="<?php echo $this->viewData['item']->id;?>"/>
+			</td>
+		</tr>
+		<tr>
+			<td>Catégorie : </td>
+			<td><input type="text" id="category" name="category" 
+					value="<?php echo $this->viewData['item']->category;?>"/>
+				<span id="erreur"><?php 
+                                                                            $message = array_shift($this->viewData['item']->getAttributErrorMessages('category'));
+                                                                            echo $message;
+                                                        ?></span>
+			</td>
+		</tr>
+		
+		<tr><td colspan='2'><input type="submit" value= "  Modifier  " /></td></tr>
+	</table>
+</form>
