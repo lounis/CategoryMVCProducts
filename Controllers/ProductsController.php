@@ -15,6 +15,7 @@ class ProductsController extends Controller
         } else {
             $category = new Category($id);
             $this->viewData['items'] = $category->fetchChildrens($start, $maxResultsPage);
+            $this->viewData['parentItems']  = $category;
         }
         
         $this->view(__FUNCTION__);
